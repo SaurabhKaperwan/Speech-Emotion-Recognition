@@ -19,13 +19,11 @@ def main():
     if selected_box=='view source code':
         st.code(get_file_content_as_string("app.py"))
 
-@st.cache(show_spinner=False)
 def get_file_content_as_string(path):
-    url = 'https://github.com/SaurabhKaperwan/Speech-Emotion-Recognition/edit/main/' + path
+    url = 'https://raw.githubusercontent.com/SaurabhKaperwan/Speech-Emotion-Recognition/main/Frontend/' + path
     response = urllib.request.urlopen(url)
     return response.read().decode("utf-8")
-    
-@st.cache(show_spinner=False)
+
 def load_model():
     model=tf.keras.models.load_model('mymodel.h5')
     
